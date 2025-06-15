@@ -47,3 +47,20 @@
 
 
 
+
+
+
+
+AgentBreaker/
+├── Program.cs                  # נקודת התחלה של התוכנית
+├── README.md                   # קובץ התיעוד הנוכחי
+├── GameLogic/
+│   └── GameManager.cs          # מנהל את כל הלוגיקה של המשחק
+├── Agents/
+│   └── Agent.cs                # מגדיר מרגל ויוצר אותו
+├── Sensors/
+│   └── Sensor.cs               # בודק אם המשתמש שבר את המרגל
+├── Enums/
+│   └── AgentLevel.cs           # דרגות היריבים (זוטר, מ"מ, מ"פ וכו')
+└── Utils/
+    └── InputHelper.cs          # עזר לקלט מהמשתמש

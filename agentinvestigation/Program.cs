@@ -11,7 +11,6 @@ namespace agentinvestigation.UI
     {
         static void Main(string[] args)
         {
-            // מה הבעיה בקוד כאן 
             MenuClass.Menu();
         }
     }

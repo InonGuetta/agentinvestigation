@@ -33,47 +33,48 @@ namespace agentinvestigation.UI
                         Console.WriteLine("  [4] Agent Type: bachir\n");
 
                         Console.Write("Enter your choice (1-4): ");
-
-                        string message= "try catch the agent '\n' PRESS 1 = audio |'\n' PRESS 2 = hacking " +
-                                    "\n PRESS 3 = espionage |'\n PRESS 4 = infiltration'";
-
                         GeneralManagement generalManagement = new GeneralManagement();
+                        
                         int choice_agent = Convert.ToInt32(Console.ReadLine());
-                        // למה אני לא יכול להפעיל כאן את הקלאסס AGENT 
                         switch (choice_agent)
                         {
                             case 1:
                                 Console.WriteLine("Please give the name to be given to the agent you are investigating.");
                                 string nameZotar = Console.ReadLine();
+                                //===
                                 Agent agentZotar = new Agent(nameZotar, "zotar");
+                                List<string> save_weaknesses_zotar = agentZotar.creatWeaknesses("zotar");
+                                List<string> save_sensors_zotar = generalManagement.insertSensors("zotar");
+                                // כאן צריך להיות המתודה של ההשוואה והיא נמצאת במתודה של SENSOR 
 
-                                generalManagement.creatWeaknesses("zotar");
-                                Console.WriteLine(message);
-                                int check_weaknesses = Convert.ToInt32(Console.ReadLine());
-                                //כאן צריכה להיות מופעלת מתודה של GeneralManagement
                                 break;
                             case 2:
                                 Console.WriteLine("Please give the name to be given to the agent you are investigating.");
                                 string nameMem_em = Console.ReadLine();
+                                //===
                                 Agent agentMem_em = new Agent(nameMem_em, "mem_em");
-                                Console.WriteLine(message);
-                                //כאן צריכה להיות מופעלת מתודה של GeneralManagement
+                                List<string> save_weaknesses_mem_em = agentMem_em.creatWeaknesses("mem_em");
+                                List<string> save_sensors_mem_em = generalManagement.insertSensors("mem_em");
+
                                 break;
                             case 3:
                                 Console.WriteLine("Please give the name to be given to the agent you are investigating.");
                                 string nameMem_pe = Console.ReadLine();
+                                //===
                                 Agent agentMem_pe = new Agent(nameMem_pe, "mem_pe");
-                                Console.WriteLine(message);
-                                //כאן צריכה להיות מופעלת מתודה של GeneralManagement
+                                List<string> save_weaknesses_mem_pe = agentMem_pe.creatWeaknesses("mem_em");
+                                List<string> save_sensors_mem_pe = generalManagement.insertSensors("mem_pe");
+
                                 break;
                             case 4:
                                 Console.WriteLine("Please give the name to be given to the agent you are investigating.");
                                 string nameBachir = Console.ReadLine();
+                                //===
                                 Agent agentBachir = new Agent(nameBachir, "bachir");
-                                Console.WriteLine(message);
-                                //כאן צריכה להיות מופעלת מתודה של GeneralManagement
-                                break;
+                                List<string> save_weaknesses_bachir = agentBachir.creatWeaknesses("bachir");
+                                List<string> save_sensors_bachir = generalManagement.insertSensors("bachir");
 
+                                break;
                         }
                         break;
                     case 2:

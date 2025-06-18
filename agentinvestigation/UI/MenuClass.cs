@@ -34,7 +34,7 @@ namespace agentinvestigation.UI
 
                         Console.Write("Enter your choice (1-4): ");
                         GeneralManagement generalManagement = new GeneralManagement();
-                        
+                        Sensor sensor = new Sensor();
                         int choice_agent = Convert.ToInt32(Console.ReadLine());
                         switch (choice_agent)
                         {
@@ -45,7 +45,7 @@ namespace agentinvestigation.UI
                                 Agent agentZotar = new Agent(nameZotar, "zotar");
                                 List<string> save_weaknesses_zotar = agentZotar.creatWeaknesses("zotar");
                                 List<string> save_sensors_zotar = generalManagement.insertSensors("zotar");
-                                // כאן צריך להיות המתודה של ההשוואה והיא נמצאת במתודה של SENSOR 
+                                Console.WriteLine(sensor.Activate(save_weaknesses_zotar, save_sensors_zotar));
 
                                 break;
                             case 2:
@@ -55,6 +55,7 @@ namespace agentinvestigation.UI
                                 Agent agentMem_em = new Agent(nameMem_em, "mem_em");
                                 List<string> save_weaknesses_mem_em = agentMem_em.creatWeaknesses("mem_em");
                                 List<string> save_sensors_mem_em = generalManagement.insertSensors("mem_em");
+                                Console.WriteLine(sensor.Activate(save_weaknesses_mem_em, save_sensors_mem_em));
 
                                 break;
                             case 3:
@@ -64,6 +65,7 @@ namespace agentinvestigation.UI
                                 Agent agentMem_pe = new Agent(nameMem_pe, "mem_pe");
                                 List<string> save_weaknesses_mem_pe = agentMem_pe.creatWeaknesses("mem_em");
                                 List<string> save_sensors_mem_pe = generalManagement.insertSensors("mem_pe");
+                                Console.WriteLine(sensor.Activate(save_weaknesses_mem_pe, save_sensors_mem_pe));
 
                                 break;
                             case 4:
@@ -73,6 +75,7 @@ namespace agentinvestigation.UI
                                 Agent agentBachir = new Agent(nameBachir, "bachir");
                                 List<string> save_weaknesses_bachir = agentBachir.creatWeaknesses("bachir");
                                 List<string> save_sensors_bachir = generalManagement.insertSensors("bachir");
+                                Console.WriteLine(sensor.Activate(save_weaknesses_bachir, save_sensors_bachir));
 
                                 break;
                         }

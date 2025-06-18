@@ -10,6 +10,7 @@ namespace agentinvestigation.classes
     {
         public string Name_Agent { get; private set; }
         public string Rank { get; private set; }
+      
         //public string[] Sensors = { "audio", "hacking", "espionage", "infiltration" };
         public static List<string> choice_weaknesses { get; set; } = new List<string>();
         
@@ -50,18 +51,19 @@ namespace agentinvestigation.classes
             return num;
         }
         //----------------------------------------------------------------------------------------
-        //private static readonly Random rnd = new Random();
-        //public List<string> creatWeaknesses(string checkRank)
-        //{
-        //    choice_weaknesses.Clear();
-        //    int num = checkRankNum(checkRank);
-        //    for (int i = 0; i < num; i++)
-        //    {
-        //        choice_weaknesses.Add(Sensors[rnd.Next(Sensors.Length)]);
-        //    }
-        //    return choice_weaknesses;
+        private static readonly Random rnd = new Random();
+        public List<string> creatWeaknesses(string checkRank)
+        {
 
-        //}
+            choice_weaknesses.Clear();
+            int num = checkRankNum(checkRank);
+            for (int i = 0; i < num; i++)
+            {
+                choice_weaknesses.Add(Sensor.Sensors[rnd.Next(Sensor.Sensors.Length)]);
+            }
+            return choice_weaknesses;
+
+        }
         //----------------------------------------------------------------------------------------
 
     }

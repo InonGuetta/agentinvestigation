@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Remoting;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,10 +29,9 @@ namespace agentinvestigation.classes
         //----------------------------------------------------------------------------------------
 
         // לכאן 001 
-        public string Activate(List<string> weaknesses, List<string> sennsors)
+        public string Activate(List<string> weaknesses, List<string> sennsors )
         {
-            List<string> saveSennsors = new List<string>();
-            saveSennsors.AddRange(sennsors);
+            
 
             for (int i = 0; i < weaknesses.Count; i++)
             {
@@ -44,19 +44,17 @@ namespace agentinvestigation.classes
                 }
             }
 
-            //int to_catch = sennsors.Count();
-            //int to_discover = weaknesses.Count();
-
             int length = sennsors.Count();
             int count = 0;
             for (int i = 0; i < length; i++)
             {
                 if (sennsors[i] == "-") count += 1;
             }
-            
 
+            // למה הערכים כאן עולים בכל הרצה עוד ועוד ועוד 
             string answer = (count == length) ? $"greate you sucssed catch all {count}/{length}"
             : $"we are sorry buy you sucssed catch only {count}/{length}";
+
             return answer;
         }
 

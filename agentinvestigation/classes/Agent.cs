@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,8 +13,10 @@ namespace agentinvestigation.classes
         public string Name_Agent { get; private set; }
         public string Rank { get; private set; }
       
-        //public string[] Sensors = { "audio", "hacking", "espionage", "infiltration" };
-        public static List<string> choice_weaknesses { get; set; } = new List<string>();
+
+        // בגלל שאני רוצה שלכל מופע יהיה את החולשות שלו
+        // אז לא שייך שזה הוא 
+        public List<string> choice_weaknesses { get; set; } = new List<string>();
         
        //----------------------------------------------------------------------------------------
 
@@ -20,6 +24,8 @@ namespace agentinvestigation.classes
         {
             this.Name_Agent = name;
             this.Rank = rank;
+
+
         }
 
 
@@ -51,15 +57,31 @@ namespace agentinvestigation.classes
             return num;
         }
         //----------------------------------------------------------------------------------------
+        // למה הערכים הרנדומליים הם כמעת ולא באמת רנדומליים כלומר הם מאוד חוזריים על עצמם 
         private static readonly Random rnd = new Random();
+        // לשנות את הפונקצייה ל void
+        public List<string> improveRandon()
+        {
+            List<string> improveRandon = new List<string>();
+            for (int i= 0; i < 15;i++)
+            {
+                improveRandon.AddRange(Sensor.Sensors);
+            }
+            return improveRandon;
+        }
+
+       // על מנת ליצור רנדומליות גבוהה יותר אנו נשתמש ב 
         public List<string> creatWeaknesses(string checkRank)
         {
 
             choice_weaknesses.Clear();
             int num = checkRankNum(checkRank);
+
+            List<string> to_choice = improveRandon();
             for (int i = 0; i < num; i++)
             {
-                choice_weaknesses.Add(Sensor.Sensors[rnd.Next(Sensor.Sensors.Length)]);
+                
+                choice_weaknesses.Add(to_choice[rnd.Next(Sensor.Sensors.Length)]);
             }
             return choice_weaknesses;
 

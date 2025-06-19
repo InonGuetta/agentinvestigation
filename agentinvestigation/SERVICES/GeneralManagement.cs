@@ -64,5 +64,24 @@ namespace agentinvestigation.SERVICES
             }
             return false;
         }
+        //-----------------------------------------------------------------------------------
+
+        // משהו חדש שלמדתי היום 
+        //  ה void
+        //  אינו יכול להיות מודפס בקונסול
+        public void runInsertAndCheck(string rank, List<string> save_weaknesses)
+        {
+            bool isValid = false;
+            while (!isValid)
+            {
+                List<string> save_sensors = insertSensors(rank);
+                string result = Sensor.Activate(save_weaknesses, save_sensors);
+                Console.WriteLine(result);
+                isValid = check(result);
+                save_sensors.Clear();
+            }
+
+        }
     }
 }
+
